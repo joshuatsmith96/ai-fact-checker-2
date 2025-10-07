@@ -14,7 +14,7 @@ import {
   SlideFade,
   type SlideFadeRef,
 } from '../components/blocks/SlideFade/SlideFade';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useGemini } from '../utilities/useGemini';
 import { ResultSection } from '../components/sections/ResultsSection/ResultSection';
 
@@ -37,7 +37,6 @@ export const Home = () => {
   const onSearch = async () => {
     fadeOut();
     await generateData(search);
-    console.log(data);
   };
 
   const resetSearch = () => {
@@ -48,10 +47,6 @@ export const Home = () => {
     }
     slideFadeRef.current?.show();
   };
-
-  useEffect(() => {
-    console.log('Updated data:', data);
-  }, [data]);
 
   return (
     <Section id="home">
