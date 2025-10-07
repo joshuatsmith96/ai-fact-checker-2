@@ -20,7 +20,11 @@ app.post("/api/gemini", async (req, res) => {
   console.log('API has been called')
   try {
     const { prompt } = req.body;
-    if (!prompt) return res.status(400).json({ error: "Prompt is required" });
+    if(prompt){
+      console.log("SUBMITTED PROMPT:", prompt);
+    } else {
+      return res.status(400).json({ error: "Prompt is required" });
+    }
 
     const preprompt =
       "Your job is to be a fact checker, and that's it. You're not a conversationalist. " +
