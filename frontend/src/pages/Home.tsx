@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { Section } from '../components/blocks/Section';
 import SearchIcon from '@mui/icons-material/Search';
+import { Image } from '../components/blocks/Image';
+import AILogo from '../assets/AI Logo.png';
 import {
   SlideFade,
   type SlideFadeRef,
@@ -78,14 +80,26 @@ export const Home = () => {
               ref={searchSectionRef}
               spacing={2}
             >
-              <Typography
-                variant="h4"
-                color="#1976d2"
-                fontWeight="bold"
-                textAlign="center"
+              <Stack
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={2}
               >
-                AI Fact Checker
-              </Typography>
+                <Image
+                  src={AILogo}
+                  alt="AI Fact Checker logo"
+                  sx={{ width: '40px' }}
+                />
+                <Typography
+                  variant="h4"
+                  color="#1976d2"
+                  fontWeight="bold"
+                  textAlign="center"
+                >
+                  AI Fact Checker
+                </Typography>
+              </Stack>
               <Typography fontSize="18px" color="#767676ff" textAlign="center">
                 Retrieve an unbiased breakdown for a specific question
               </Typography>
