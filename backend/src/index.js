@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const FRONTEND_ORIGINS = ["http://localhost:5173", "http://192.168.0.21:5173", "https://testing.joshuasportfolio.org", "https://aifactchecker.joshuasportfolio.org/"];
+const FRONTEND_ORIGINS = ["http://localhost:5173", "http://192.168.0.21:5173", "https://aifactchecker.joshuasportfolio.org/"];
 
 app.use(cors({ origin: FRONTEND_ORIGINS }));
 
