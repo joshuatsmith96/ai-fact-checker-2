@@ -1,0 +1,41 @@
+[
+    {
+        "users_question": "Is it true that eating dark chocolate can significantly improve brain function, including memory and cognitive processing speed?",
+        "validity": "Partially True",
+        "confidence": 85,
+        "verified_facts": [
+            {
+                "category": "Cocoa Flavanols and Brain Health",
+                "facts": [
+                    "Dark chocolate is rich in cocoa flavanols, which are plant-derived compounds with antioxidant and anti-inflammatory properties.",
+                    "Studies suggest that flavanols can increase blood flow to specific regions of the brain, potentially enhancing cognitive performance.",
+                    "Acute consumption may lead to short-term improvements in attention and working memory."
+                ]
+            },
+            {
+                "category": "Long-term vs. Short-term Effects",
+                "facts": [
+                    "fact 1",
+                    "fact 2",
+                    "fact 3"
+                ]
+            },
+            {
+                "category": "Other Factors and Considerations",
+                "facts": [
+                    "fact 1",
+                    "fact 2",
+                    "fact 3"
+                ]
+            }
+        ],
+        "sources": [
+            {
+                "id": 1,
+                "source_title": "Flavanol-rich cocoa consumption affects brain networks in healthy adults",
+                "source_description": "A study by American Heart Association, published in Scientific Reports, exploring the impact of flavanols on brain activity and cognitive performance.",
+                "source_link": "https://www.realwebsitehere.com"
+            }
+        ]
+    }
+]
