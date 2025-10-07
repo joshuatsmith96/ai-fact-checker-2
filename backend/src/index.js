@@ -1,8 +1,25 @@
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import exampleData from '../data/exampleData.json' with { type: "json" };
+
+
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+
+const FRONTEND_ORIGINS = ["http://localhost:5173", "http://192.168.0.21:5173", "https://testing.joshuasportfolio.org", "https://aifactchecker.joshuasportfolio.org/"];
+
+app.use(cors({ origin: FRONTEND_ORIGINS }));
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
 app.post("/api/gemini", async (req, res) => {
-  console.log("API has been called");
+  console.log('API has been called')
   try {
     const { prompt } = req.body;
-    console.log("INCOMING PROMPT: " + prompt);
     if (!prompt) return res.status(400).json({ error: "Prompt is required" });
 
     const preprompt =
@@ -34,16 +51,14 @@ app.post("/api/gemini", async (req, res) => {
       return res.status(500).json({ error: "Failed to parse AI JSON output" });
     }
 
-    // If the AI returned an error response
-    if (parsedData?.error) {
-      return res.status(400).json({ error: parsedData.error });
-    }
-
-    // Otherwise, return the valid response inside an array
-    res.json([parsedData]);
+    res.json(parsedData);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: error.message || "Something went wrong on the server" });
+    res.status(500).json({ error: error.message || "Something went wrong on the server" });
   }
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
